@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>La Profe Rico · English Tutoring in Madrid</title>
-<meta name="description" content="In-person English tutoring in Madrid for kids and teens: homework help, conversation practice and exam prep (Cambridge, IELTS, Trinity, EBAU). Native speaker from New York, TQUK Level 4 TEFL.">
+<meta name="description" content="In-person English tutoring in Madrid for kids, teens and adults: homework help, conversation practice and exam prep (Cambridge, IELTS, Trinity, EBAU). Native speaker from New York, TQUK Level 4 TEFL.">
 <!-- App / home-screen settings -->
 <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
@@ -28,14 +28,14 @@
 *{box-sizing:border-box}
 [hidden]{display:none!important}
 html{scroll-behavior:smooth}
-body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.6;font-size:16px}
+body{overflow-x:clip;margin:0;font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.6;font-size:16px}
 img{max-width:100%;display:block}
 a{color:var(--indigo)}
 .container{max-width:1120px;margin:0 auto;padding-inline:20px}
 section{padding-block:80px}
 .kicker{display:inline-block;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--plum);margin-bottom:10px}
 h1,h2,h3{font-family:var(--serif);line-height:1.15;margin:0 0 14px;color:var(--wine)}
-h1{font-size:clamp(2.1rem,4.6vw,3.4rem)}
+h1{font-size:clamp(2.1rem,4.6vw,3.4rem);text-wrap:balance}
 h2{font-size:clamp(1.7rem,3.4vw,2.4rem)}
 h3{font-size:1.2rem}
 p{margin:0 0 14px}
@@ -72,8 +72,8 @@ header{position:sticky;top:0;z-index:50;background:rgba(248,244,242,.92);backdro
 .badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
 .badge{font-size:.85rem;font-weight:500;padding:6px 14px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--ink)}
 .badge::before{content:"✓ ";color:var(--steel);font-weight:700}
-.portrait{position:relative}
-.portrait .frame{aspect-ratio:4/5;border-radius:24px;overflow:hidden;background:linear-gradient(135deg,var(--steel),var(--indigo));box-shadow:var(--shadow);position:relative}
+.portrait{position:relative;width:100%;max-width:340px;justify-self:center}
+.portrait .frame{width:100%;aspect-ratio:4/5;border-radius:24px;overflow:hidden;background:linear-gradient(135deg,var(--steel),var(--indigo));box-shadow:var(--shadow);position:relative}
 .portrait .frame img{width:100%;height:100%;object-fit:cover}
 .portrait::after{content:"";position:absolute;inset:auto -14px -14px auto;width:60%;height:60%;border-radius:24px;border:3px solid var(--gold);z-index:-1}
 .missing{display:flex;align-items:center;justify-content:center}
@@ -109,7 +109,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(248,244,242,.92);backdro
 .creds ul{list-style:none;padding:0;margin:0 0 20px;display:grid;gap:10px}
 .creds li{display:flex;gap:10px;font-size:.95rem}
 .creds li::before{content:"";flex:none;width:8px;height:8px;margin-top:9px;border-radius:50%;background:var(--plum)}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:40px}
 .stat{background:var(--bg);border-radius:var(--radius);padding:22px}
 .stat b{display:block;font-family:var(--serif);font-size:2.4rem;color:var(--wine);line-height:1}
 .stat b .g{color:var(--plum)}
@@ -131,7 +131,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(248,244,242,.92);backdro
 
 /* Pricing */
 .pricing{background:var(--bg-alt)}
-.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+.price-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:36px}
 .price{background:#fff;border-radius:var(--radius);padding:28px;text-align:center;position:relative}
 .price.featured{border:2px solid var(--wine);box-shadow:var(--shadow)}
 .price h3{font-family:var(--sans);font-weight:600;font-size:1rem;color:var(--ink)}
@@ -150,6 +150,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(248,244,242,.92);backdro
 .or-line{text-align:center;margin:26px 0 0;color:var(--muted);font-weight:600}
 .cal-box{margin-top:14px;background:#fff;border-radius:22px;box-shadow:var(--shadow);min-height:200px;overflow:hidden}
 #cal-inline{width:100%;min-height:640px}
+#cal-inline iframe{width:100%!important;max-width:100%}
 .cal-placeholder{padding:48px 28px;text-align:center;color:var(--muted)}
 .cal-placeholder .ic{font-size:2.4rem;display:block;margin-bottom:10px}
 
@@ -191,14 +192,19 @@ footer a{color:var(--gold)}
 footer .brand{color:#fff}
 
 @media (max-width:900px){
-  .hero-grid,.approach-grid,.about-grid,.contact-grid{grid-template-columns:1fr;gap:36px}
-  .portrait{max-width:380px;margin-inline:auto}
-  .price-grid{grid-template-columns:1fr}
-  .stats{grid-template-columns:1fr}
+  .hero-grid{grid-template-columns:1.4fr 1fr;gap:32px}
+  .portrait{max-width:280px}
+  .approach-grid,.about-grid,.contact-grid{grid-template-columns:1fr;gap:36px}
   .nav-links{display:none;position:absolute;top:68px;left:0;right:0;background:var(--bg);flex-direction:column;padding:16px 20px 22px;border-bottom:1px solid var(--line)}
   .nav-links.open{display:flex}
   .menu-btn{display:block}
   .car-btn.prev{left:8px}.car-btn.next{right:8px}
+}
+@media (max-width:680px){
+  .hero{padding-block:32px 56px}
+  .hero-grid{grid-template-columns:1fr;gap:28px}
+  .portrait{order:-1;width:100%;max-width:170px;margin-inline:auto}
+  .portrait::after{inset:auto -10px -10px auto}
 }
 @media (max-width:560px){
   section{padding-block:56px}
@@ -238,8 +244,8 @@ footer .brand{color:#fff}
   <div class="container hero-grid">
     <div>
       <span class="kicker" data-i18n="hero_kicker">In-person English tutoring · Madrid</span>
-      <h1 data-i18n-html="hero_title">English help that starts <span class="hl">where your child is.</span></h1>
-      <p class="lead" data-i18n="hero_sub">Homework support, conversation practice and exam prep with a native New Yorker and certified English teacher. No generic syllabus: we work on what your child actually needs.</p>
+      <h1 data-i18n-html="hero_title">English help that meets every student <span class="hl">where they&nbsp;are.</span></h1>
+      <p class="lead" data-i18n="hero_sub">Homework support, conversation practice and exam prep for kids, teens and adults, with a native New Yorker and certified English teacher. No generic syllabus: we work on what each student actually needs.</p>
       <div class="btns">
         <a href="#book" class="btn btn-primary" data-i18n="cta_book">Book a session</a>
         <a href="#contact" class="btn btn-secondary" data-i18n="cta_msg">Send a message</a>
@@ -247,7 +253,7 @@ footer .brand{color:#fff}
       <div class="badges">
         <span class="badge" data-i18n="badge1">TQUK Level 4 TEFL</span>
         <span class="badge" data-i18n="badge2">Native speaker · NYC</span>
-        <span class="badge" data-i18n="badge3">Ages 5–18</span>
+        <span class="badge" data-i18n="badge3">Kids, teens &amp; adults</span>
         <span class="badge" data-i18n="badge4">Background-checked</span>
       </div>
     </div>
@@ -312,7 +318,7 @@ footer .brand{color:#fff}
         <span class="kicker" data-i18n="ab_kicker">About me</span>
         <h2 data-i18n="ab_title">Hi, I'm Erika.</h2>
         <p data-i18n="ab_p1">I'm a native English speaker from New York City. After a career in the corporate world, I earned my TQUK Level 4 certificate in Teaching English as a Foreign Language and moved into the work I enjoy most: helping young people feel comfortable and confident in English.</p>
-        <p data-i18n="ab_p2">For two years I worked at a public high school in Vallecas, a neighborhood in Madrid, Spain. Throughout both school years, I also tutored children and teens aged 5 to 18 from public, private and charter (concertado) schools every week, in their homes.</p>
+        <p data-i18n="ab_p2">For two years I worked at a public high school in Vallecas, a neighborhood in Madrid, Spain. In total, I spent four years in Madrid tutoring children and teens aged 5 to 18 from public, private and charter (concertado) schools every week, in their homes.</p>
         <p data-i18n="ab_p3">I studied Italian and International Studies at Penn State University and completed an MBA in Spain taught entirely in Spanish. I know what it's like to learn in a second language, and I can explain things in Spanish when a student gets stuck.</p>
         <p data-i18n="ab_p4">I've also helped students prepare to spend a year at a US high school, and I've coached adults, including a school principal, in conversation, grammar review and even essay writing.</p>
         <p><a href="https://sites.google.com/view/erikatheprofe/home" target="_blank" rel="noopener" data-i18n="ab_link">See a teaching project I built →</a></p>
@@ -332,8 +338,8 @@ footer .brand{color:#fff}
     </div>
     <div class="stats">
       <div class="stat"><b>+58<span class="g">%</span></b><span data-i18n="st1">Average score improvement for my Cambridge and EBAU prep students, from first practice exam to final result.</span></div>
-      <div class="stat"><b>2</b><span data-i18n="st2">Full school years tutoring weekly in Madrid homes.</span></div>
-      <div class="stat"><b>5–18</b><span data-i18n="st3">Ages I've taught, from first words to university entrance exams.</span></div>
+      <div class="stat"><b>4</b><span data-i18n="st2">Years tutoring kids and teens weekly in Madrid, in their homes.</span></div>
+      <div class="stat"><b>5+</b><span data-i18n="st3">Ages I've taught: young kids, teens preparing for university entrance exams, and adults.</span></div>
     </div>
   </div>
 </section>
@@ -467,7 +473,7 @@ footer .brand{color:#fff}
       <details><summary data-i18n="q2">Can sessions be longer than an hour?</summary><p data-i18n="a2">Yes. Sessions are booked in 1-hour blocks and can be extended; longer sessions are priced proportionally.</p></details>
       <details><summary data-i18n="q3">Do you follow a syllabus?</summary><p data-i18n="a3">No. I don't teach grammar from scratch. I work with your child's school material, textbooks and upcoming exams, and focus on their weak spots.</p></details>
       <details><summary data-i18n="q4">Why 24 hours' notice?</summary><p data-i18n="a4">I travel to students around the city, so I plan each day in advance. That's why every booking needs at least 24 hours' notice.</p></details>
-      <details><summary data-i18n="q5">Do you teach adults?</summary><p data-i18n="a5">Mostly I work with kids and teens, but I'm happy to help adults with conversation practice and essay writing.</p></details>
+      <details><summary data-i18n="q5">Do you teach adults?</summary><p data-i18n="a5">Yes. Most of my students are kids and teens, and I also work with adults on conversation, grammar review and essay writing.</p></details>
       <details><summary data-i18n="q6">Can we meet before booking lessons?</summary><p data-i18n="a6">Yes, and many families like to. Book an optional, free 15-minute intro, in person or by video, to talk about your child's needs, goals and schedule and see if we're a good fit.</p></details>
     </div>
   </div>
@@ -511,10 +517,10 @@ const T = {
 en:{
  nav_approach:"How I teach",nav_lessons:"Lessons",nav_about:"About",nav_pricing:"Pricing",nav_contact:"Contact",nav_book:"Book",
  hero_kicker:"In-person English tutoring · Madrid",
- hero_title:'English help that starts <span class="hl">where your child is.</span>',
- hero_sub:"Homework support, conversation practice and exam prep with a native New Yorker and certified English teacher. No generic syllabus: we work on what your child actually needs.",
+ hero_title:'English help that meets every student <span class="hl">where they&nbsp;are.</span>',
+ hero_sub:"Homework support, conversation practice and exam prep for kids, teens and adults, with a native New Yorker and certified English teacher. No generic syllabus: we work on what each student actually needs.",
  cta_book:"Book a session",cta_msg:"Send a message",
- badge1:"TQUK Level 4 TEFL",badge2:"Native speaker · NYC",badge3:"Ages 5–18",badge4:"Background-checked",
+ badge1:"TQUK Level 4 TEFL",badge2:"Native speaker · NYC",badge3:"Kids, teens & adults",badge4:"Background-checked",
  ap_kicker:"How I teach",ap_title:"Not a grammar course. Targeted support.",
  ap_body:"Your child already has English at school. My job is to fill the gaps: we review weak spots, work through homework and textbooks together, prepare for upcoming exams, and build the confidence to actually speak. Every session is shaped around what's happening that week.",
  ap1_t:"Weak spots first",ap1_b:"We find what's holding them back and work on it directly.",
@@ -529,12 +535,12 @@ en:{
  wh_title:"Where we meet",w1_t:"At your home",w1_b:"Anywhere within the M-30.",w2_t:"At my home",w2_b:"A quiet space ready for studying.",w3_t:"School pickup",w3_b:"Available on request.",w4_t:"Online",w4_b:"Possible, though I prefer in person.",
  ab_kicker:"About me",ab_title:"Hi, I'm Erika.",
  ab_p1:"I'm a native English speaker from New York City. After a career in the corporate world, I earned my TQUK Level 4 certificate in Teaching English as a Foreign Language and moved into the work I enjoy most: helping young people feel comfortable and confident in English.",
- ab_p2:"For two years I worked at a public high school in Vallecas, a neighborhood in Madrid, Spain. Throughout both school years, I also tutored children and teens aged 5 to 18 from public, private and charter (concertado) schools every week, in their homes.",
+ ab_p2:"For two years I worked at a public high school in Vallecas, a neighborhood in Madrid, Spain. In total, I spent four years in Madrid tutoring children and teens aged 5 to 18 from public, private and charter (concertado) schools every week, in their homes.",
  ab_p3:"I studied Italian and International Studies at Penn State University and completed an MBA in Spain taught entirely in Spanish. I know what it's like to learn in a second language, and I can explain things in Spanish when a student gets stuck.",
  ab_p4:"I've also helped students prepare to spend a year at a US high school, and I've coached adults, including a school principal, in conversation, grammar review and even essay writing.",
  ab_link:"See a teaching project I built →",
  cr_title:"Qualifications",cr1:"TQUK Level 4 Certificate in TEFL",cr2:"Native speaker, New York City",cr3:"BA, Penn State University (Italian & International Studies)",cr4:"MBA in Spain, taught in Spanish",cr5:"Spanish: C1",cr6:"Certificado de Delitos de Naturaleza Sexual (clear)",
- st1:"Average score improvement for my Cambridge and EBAU prep students, from first practice exam to final result.",st2:"Full school years tutoring weekly in Madrid homes.",st3:"Ages I've taught, from first words to university entrance exams.",
+ st1:"Average score improvement for my Cambridge and EBAU prep students, from first practice exam to final result.",st2:"Years tutoring kids and teens weekly in Madrid, in their homes.",st3:"Ages I've taught: young kids, teens preparing for university entrance exams, and adults.",
  gl_kicker:"Gallery",gl_title:"Moments from lessons",
  pr_kicker:"Pricing",pr_title:"Simple, clear pricing",
  pr1_t:"Private session",pr1_amt:"from €25",pr1_unit:"per hour",pr1_b:"One-to-one, within the M-30. Longer sessions are priced proportionally.",
@@ -554,17 +560,17 @@ en:{
  q4:"Why 24 hours' notice?",a4:"I travel to students around the city, so I plan each day in advance. That's why every booking needs at least 24 hours' notice.",
  in_t:"Want to meet first? Book a free 15-minute intro (optional)",in_b:"In person or by video. We meet, talk about your child's needs and see if we're a good fit, with no commitment.",in_btn:"Book a free intro",in_or:"Or go straight to booking a 1-hour session:",q6:"Can we meet before booking lessons?",a6:"Yes, and many families like to. Book an optional, free 15-minute intro, in person or by video, to talk about your child's needs, goals and schedule and see if we're a good fit.",
  cap1:"3º ESO students working in groups during a Chemistry class taught in English.",cap2:"Building conversation stories with a Harry Potter character map, with a primary school student.",cap3:"Excerpts from a message from an adult student.",cap4:"Guidelines for 1º and 2º de Bachillerato students on writing an essay.",cap5:"Reviewing classwork before starting homework with a 2º de primaria student.",
- q5:"Do you teach adults?",a5:"Mostly I work with kids and teens, but I'm happy to help adults with conversation practice and essay writing.",
+ q5:"Do you teach adults?",a5:"Yes. Most of my students are kids and teens, and I also work with adults on conversation, grammar review and essay writing.",
  a2_title:"Get the La Profe Rico app",a2_ios1:"Tap",a2_ios2:"then “Add to Home Screen” to book in one tap.",a2_other:"Install it on your phone to book in one tap.",a2_btn:"Install",a2_desktop:"Open this site on your phone, then choose “Add to Home Screen”.",a2_footer:"Add to Home Screen",
  ft_tag:" · In-person English tutoring in Madrid", title:"La Profe Rico · English Tutoring in Madrid"
 },
 es:{
  nav_approach:"Mi método",nav_lessons:"Clases",nav_about:"Sobre mí",nav_pricing:"Tarifas",nav_contact:"Contacto",nav_book:"Reservar",
  hero_kicker:"Clases particulares de inglés presenciales · Madrid",
- hero_title:'Clases de inglés que parten <span class="hl">de donde está tu hijo.</span>',
- hero_sub:"Apoyo con los deberes, práctica de conversación y preparación de exámenes con una profesora nativa de Nueva York con certificación en enseñanza de inglés. Sin temario genérico: trabajamos lo que tu hijo realmente necesita.",
+ hero_title:'Clases de inglés que se adaptan a cada alumno, <span class="hl">sea cual sea su punto de partida.</span>',
+ hero_sub:"Apoyo con los deberes, práctica de conversación y preparación de exámenes para niños, adolescentes y adultos, con una profesora nativa de Nueva York con certificación en enseñanza de inglés. Sin temario genérico: trabajamos lo que cada alumno realmente necesita.",
  cta_book:"Reservar una clase",cta_msg:"Enviar un mensaje",
- badge1:"TQUK Nivel 4 TEFL",badge2:"Nativa · Nueva York",badge3:"De 5 a 18 años",badge4:"Certificado de delitos sexuales",
+ badge1:"TQUK Nivel 4 TEFL",badge2:"Nativa · Nueva York",badge3:"Niños, adolescentes y adultos",badge4:"Certificado de delitos sexuales",
  ap_kicker:"Mi método",ap_title:"No es un curso de gramática. Es apoyo a medida.",
  ap_body:"Tu hijo ya tiene inglés en el colegio. Mi trabajo es cubrir lo que falta: repasamos los puntos débiles, hacemos juntos los deberes y el libro de texto, preparamos los próximos exámenes y ganamos confianza para hablar de verdad. Cada clase se adapta a lo que toca esa semana.",
  ap1_t:"Primero, los puntos débiles",ap1_b:"Detectamos lo que les frena y lo trabajamos directamente.",
@@ -579,12 +585,12 @@ es:{
  wh_title:"Dónde damos clase",w1_t:"En tu casa",w1_b:"En cualquier punto dentro de la M-30.",w2_t:"En mi casa",w2_b:"Un espacio tranquilo y preparado para estudiar.",w3_t:"Recogida en el colegio",w3_b:"Disponible bajo petición.",w4_t:"Online",w4_b:"Es posible, aunque prefiero presencial.",
  ab_kicker:"Sobre mí",ab_title:"Hola, soy Erika.",
  ab_p1:"Soy nativa de Nueva York. Después de una carrera en el mundo corporativo, obtuve el certificado TQUK Nivel 4 en Enseñanza de Inglés como Lengua Extranjera y me dediqué a lo que más me gusta: ayudar a niños y jóvenes a sentirse cómodos y seguros en inglés.",
- ab_p2:"Durante dos años trabajé en un instituto público de Vallecas, un barrio de Madrid. A lo largo de esos dos cursos también di clases particulares cada semana, en sus casas, a niños y adolescentes de 5 a 18 años de colegios públicos, privados y concertados.",
+ ab_p2:"Durante dos años trabajé en un instituto público de Vallecas, un barrio de Madrid. En total, he pasado cuatro años en Madrid dando clases particulares cada semana, en sus casas, a niños y adolescentes de 5 a 18 años de colegios públicos, privados y concertados.",
  ab_p3:"Estudié Italiano y Estudios Internacionales en Penn State University e hice un MBA en España íntegramente en español. Sé lo que es aprender en otro idioma, y puedo explicar las cosas en español cuando un alumno se atasca.",
  ab_p4:"También he ayudado a alumnos a preparar un año escolar en un instituto de EE. UU., y he dado clases a adultos (entre ellos, una directora de colegio) de conversación, repaso de gramática e incluso redacción.",
  ab_link:"Mira un proyecto docente que creé →",
  cr_title:"Formación",cr1:"Certificado TQUK Nivel 4 en TEFL",cr2:"Nativa, Nueva York",cr3:"Grado, Penn State University (Italiano y Estudios Internacionales)",cr4:"MBA en España, en español",cr5:"Español: C1",cr6:"Certificado de Delitos de Naturaleza Sexual (negativo)",
- st1:"Mejora media de nota de mis alumnos de Cambridge y EBAU, del primer simulacro al resultado final.",st2:"Cursos completos dando clases semanales en casas de Madrid.",st3:"Edades con las que he trabajado, desde las primeras palabras hasta la EBAU.",
+ st1:"Mejora media de nota de mis alumnos de Cambridge y EBAU, del primer simulacro al resultado final.",st2:"Años dando clases semanales a niños y adolescentes en sus casas de Madrid.",st3:"Edades con las que he trabajado: niños pequeños, adolescentes que preparan la EBAU y adultos.",
  gl_kicker:"Galería",gl_title:"Momentos de clase",
  pr_kicker:"Tarifas",pr_title:"Tarifas claras y sencillas",
  pr1_t:"Clase individual",pr1_amt:"desde 25 €",pr1_unit:"por hora",pr1_b:"Individual, dentro de la M-30. Las clases más largas se calculan de forma proporcional.",
@@ -604,17 +610,17 @@ es:{
  q4:"¿Por qué 24 horas de antelación?",a4:"Me desplazo por toda la ciudad, así que organizo cada día con antelación. Por eso todas las reservas necesitan al menos 24 horas.",
  in_t:"¿Quieres conocerme antes? Reserva una presentación gratuita de 15 minutos (opcional)",in_b:"En persona o por videollamada. Nos conocemos, hablamos de lo que necesita tu hijo y vemos si encajamos, sin compromiso.",in_btn:"Reservar presentación gratuita",in_or:"O reserva directamente una clase de 1 hora:",q6:"¿Podemos conocernos antes de reservar clases?",a6:"Sí, y muchas familias lo prefieren. Reserva una presentación opcional y gratuita de 15 minutos, en persona o por videollamada, para hablar de las necesidades, objetivos y horarios de tu hijo y ver si encajamos.",
  cap1:"Alumnos de 3º de ESO trabajando en grupo durante una clase de Química impartida en inglés.",cap2:"Creando historias para practicar conversación con un mapa de personajes de Harry Potter, junto a un alumno de primaria.",cap3:"Extractos del mensaje de un alumno adulto.",cap4:"Pautas para redactar un ensayo, para alumnos de 1º y 2º de Bachillerato.",cap5:"Repasando lo visto en clase antes de hacer los deberes con un alumno de 2º de primaria.",
- q5:"¿Das clases a adultos?",a5:"Trabajo sobre todo con niños y adolescentes, pero también ayudo a adultos con conversación y redacción.",
+ q5:"¿Das clases a adultos?",a5:"Sí. La mayoría de mis alumnos son niños y adolescentes, y también trabajo con adultos en conversación, repaso de gramática y redacción.",
  a2_title:"Ten La Profe Rico en tu móvil",a2_ios1:"Pulsa",a2_ios2:"y luego “Añadir a pantalla de inicio” para reservar con un toque.",a2_other:"Instálala en tu móvil para reservar con un toque.",a2_btn:"Instalar",a2_desktop:"Abre esta web en tu móvil y elige “Añadir a pantalla de inicio”.",a2_footer:"Añadir a pantalla de inicio",
  ft_tag:" · Clases de inglés presenciales en Madrid", title:"La Profe Rico · Clases de inglés en Madrid"
 },
 zh:{
  nav_approach:"教學方式",nav_lessons:"課程",nav_about:"關於我",nav_pricing:"收費",nav_contact:"聯絡",nav_book:"預約",
  hero_kicker:"面對面英語家教 · 台灣",
- hero_title:'從<span class="hl">孩子現在的程度</span>出發的英語輔導。',
- hero_sub:"由來自紐約、英語為母語的認證英語老師，提供作業輔導、會話練習與考試準備。不照本宣科，只專注孩子真正需要加強的地方。",
+ hero_title:'英語輔導，<span class="hl">從每位學生的程度出發。</span>',
+ hero_sub:"由來自紐約、英語為母語的認證英語老師，為兒童、青少年及成人提供作業輔導、會話練習與考試準備。不照本宣科，只專注每位學生真正需要加強的地方。",
  cta_book:"預約課程",cta_msg:"留言諮詢",
- badge1:"TQUK Level 4 英語教學證書",badge2:"英語母語 · 紐約",badge3:"5–18 歲",badge4:"無犯罪紀錄證明",
+ badge1:"TQUK Level 4 英語教學證書",badge2:"英語母語 · 紐約",badge3:"兒童、青少年及成人",badge4:"無犯罪紀錄證明",
  ap_kicker:"教學方式",ap_title:"不是文法課，而是量身打造的輔導。",
  ap_body:"孩子在學校已經有英文課了。我的工作是補足不足之處：複習弱點、一起完成作業和課本練習、準備即將到來的考試，並建立真正開口說英文的自信。每堂課都依照當週的需要安排。",
  ap1_t:"先找出弱點",ap1_b:"找出讓孩子卡關的地方，直接解決。",
@@ -629,12 +635,12 @@ zh:{
  wh_title:"上課地點",w1_t:"到府上課",w1_b:"市區範圍內皆可。",w2_t:"在我家上課",w2_b:"安靜、適合讀書的空間。",w3_t:"放學接送",w3_b:"可依需求安排。",w4_t:"線上",w4_b:"可以，但我比較推薦面授。",
  ab_kicker:"關於我",ab_title:"嗨，我是 Erika。",
  ab_p1:"我來自紐約，英語是我的母語。在企業界工作多年後，我取得英國 TQUK Level 4 英語教學（TEFL）證書，投入我最喜歡的工作：幫助孩子和青少年自在、自信地使用英文。",
- ab_p2:"我曾在西班牙馬德里 Vallecas 區的一所公立高中工作兩年。這兩個學年中，我也每週到學生家中，為 5 至 18 歲、就讀公立、私立及公費補助私立學校（concertado）的孩子與青少年上家教課。",
+ ab_p2:"我曾在西班牙馬德里 Vallecas 區的一所公立高中工作兩年。在馬德里的四年間，我每週到學生家中，為 5 至 18 歲、就讀公立、私立及公費補助私立學校（concertado）的孩子與青少年上家教課。",
  ab_p3:"我在美國賓州州立大學主修義大利文與國際研究，並在西班牙以全西班牙文完成 MBA。我很清楚用第二語言學習是什麼感覺，也更能理解學生遇到的困難。",
  ab_p4:"我也曾協助學生準備赴美就讀一年高中，並指導成人（包括一位學校校長）進行英語會話、文法複習，甚至英文寫作。",
  ab_link:"看看我做過的教學專案 →",
  cr_title:"學經歷",cr1:"TQUK Level 4 英語教學（TEFL）證書",cr2:"英語母語，紐約",cr3:"美國賓州州立大學學士（義大利文、國際研究）",cr4:"西班牙 MBA（全西班牙文授課）",cr5:"西班牙文 C1",cr6:"無性犯罪紀錄證明",
- st1:"我的劍橋英檢與 EBAU 考生，從第一次模擬考到正式成績的平均進步幅度。",st2:"在馬德里每週到府家教的完整學年。",st3:"教過的學生年齡，從剛開始學英文到大學入學考試。",
+ st1:"我的劍橋英檢與 EBAU 考生，從第一次模擬考到正式成績的平均進步幅度。",st2:"在馬德里每週到府為兒童與青少年家教的年數。",st3:"教過的學生年齡：從幼童、準備大學入學考試的青少年，到成人。",
  gl_kicker:"相簿",gl_title:"上課花絮",
  pr_kicker:"收費",pr_title:"簡單透明的收費",
  pr1_t:"一對一課程",pr1_amt:"NT$1,000 起",pr1_unit:"每小時",pr1_b:"一對一，市區範圍內。較長課程依比例計費。",
@@ -654,7 +660,7 @@ zh:{
  q4:"為什麼要提前 24 小時預約？",a4:"我需要往返各地上課，每天的行程都要事先安排，所以所有預約都須至少提前 24 小時。",
  in_t:"想先見個面嗎？預約免費 15 分鐘初次見面（自由選擇）",in_b:"面對面或視訊皆可。彼此認識、聊聊孩子的需求，看看是否適合，沒有任何義務。",in_btn:"預約免費見面",in_or:"或直接預約一小時課程：",q6:"正式上課前可以先聊聊嗎？",a6:"可以，很多家庭都喜歡這樣做。您可以預約免費的 15 分鐘初次見面（面對面或視訊，自由選擇），討論孩子的需求、目標和時間安排，看看是否適合。",
  cap1:"西班牙國中三年級（3º ESO）學生在全英語授課的化學課上分組進行活動。",cap2:"與一位國小學生運用《哈利波特》人物關係圖，一起編寫會話練習故事。",cap3:"一位成人學生來信的節錄。",cap4:"為西班牙高中一、二年級（Bachillerato）學生準備的英文寫作指南。",cap5:"與一位國小二年級學生先複習課堂內容，再開始寫作業。",
- q5:"有成人課程嗎？",a5:"我主要教兒童和青少年，但也很樂意協助成人練習會話和英文寫作。",
+ q5:"有成人課程嗎？",a5:"有。我的學生大多是兒童和青少年，也有成人學生，一起練習會話、複習文法和英文寫作。",
  a2_title:"將 La Profe Rico 加到主畫面",a2_ios1:"點選",a2_ios2:"再選「加入主畫面」，一鍵就能預約。",a2_other:"安裝到手機上，一鍵就能預約。",a2_btn:"安裝",a2_desktop:"請用手機開啟本網站，再選擇「加入主畫面」。",a2_footer:"加入主畫面",
  ft_tag:" · 台灣面對面英語家教", title:"La Profe Rico · 英語家教"
 }};
