@@ -1,0 +1,16 @@
+{
+  "name": "La Profe Rico · English Tutoring",
+  "short_name": "La Profe Rico",
+  "description": "Book in-person English tutoring: homework help, conversation practice and exam prep.",
+  "start_url": "/?source=homescreen",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f8f4f2",
+  "theme_color": "#92374D",
+  "lang": "en",
+  "icons": [
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

@@ -1,0 +1,785 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La Profe Rico · English Tutoring in Madrid</title>
+<meta name="description" content="In-person English tutoring in Madrid for kids and teens: homework help, conversation practice and exam prep (Cambridge, IELTS, Trinity, EBAU). Native speaker from New York, TQUK Level 4 TEFL.">
+<!-- App / home-screen settings -->
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#92374D">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="La Profe Rico">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --wine:#92374D; --plum:#8C5383; --indigo:#4a5899; --steel:#559CAD; --greige:#C1B2AB; --gold:#ffbc42;
+  --bg:#f8f4f2; --bg-alt:#efe8e4; --card:#ffffff; --ink:#2a2230; --muted:#5d5561; --line:#e2d8d3;
+  --radius:16px; --shadow:0 10px 30px rgba(74,40,60,.10);
+  --serif:"Fraunces",Georgia,"Noto Serif TC","PMingLiU",serif;
+  --sans:"Inter",system-ui,-apple-system,"Segoe UI","PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.6;font-size:16px}
+img{max-width:100%;display:block}
+a{color:var(--indigo)}
+.container{max-width:1120px;margin:0 auto;padding-inline:20px}
+section{padding-block:80px}
+.kicker{display:inline-block;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--plum);margin-bottom:10px}
+h1,h2,h3{font-family:var(--serif);line-height:1.15;margin:0 0 14px;color:var(--wine)}
+h1{font-size:clamp(2.1rem,4.6vw,3.4rem)}
+h2{font-size:clamp(1.7rem,3.4vw,2.4rem)}
+h3{font-size:1.2rem}
+p{margin:0 0 14px}
+.lead{font-size:1.1rem;color:var(--muted);max-width:60ch}
+.center{text-align:center}.center .lead{margin-inline:auto}
+
+/* Nav */
+header{position:sticky;top:0;z-index:50;background:rgba(248,244,242,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:68px}
+.brand{font-family:var(--serif);font-weight:700;font-size:1.35rem;color:var(--wine);text-decoration:none;display:flex;align-items:center;gap:10px}
+.brand .logo{width:38px;height:38px;border-radius:10px}
+.brand .dot{width:12px;height:12px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(255,188,66,.25)}
+.nav-links{display:flex;gap:22px;align-items:center}
+.nav-links a{text-decoration:none;color:var(--ink);font-weight:500;font-size:.95rem}
+.nav-links a:hover{color:var(--wine)}
+.nav-right{display:flex;align-items:center;gap:12px}
+.lang{appearance:none;font:inherit;font-size:.9rem;font-weight:500;padding:7px 30px 7px 12px;border-radius:999px;border:1.5px solid var(--line);background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%2392374D'/%3E%3C/svg%3E") no-repeat right 12px center;color:var(--ink);cursor:pointer}
+.lang:focus{outline:2px solid var(--indigo);outline-offset:2px}
+.menu-btn{display:none;background:none;border:0;font-size:1.5rem;color:var(--wine);cursor:pointer}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:999px;font-weight:600;text-decoration:none;border:2px solid transparent;cursor:pointer;font:inherit;font-weight:600;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--wine);color:#fff;box-shadow:0 6px 18px rgba(146,55,77,.28)}
+.btn-secondary{background:transparent;color:var(--indigo);border-color:var(--indigo)}
+.btn-small{padding:8px 16px;font-size:.9rem}
+
+/* Hero */
+.hero{padding-block:64px 80px}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+.hero .lead{margin-bottom:26px}
+.hero h1 .hl{background:linear-gradient(transparent 62%,rgba(255,188,66,.55) 62%)}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.badge{font-size:.85rem;font-weight:500;padding:6px 14px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--ink)}
+.badge::before{content:"✓ ";color:var(--steel);font-weight:700}
+.portrait{position:relative}
+.portrait .frame{aspect-ratio:4/5;border-radius:24px;overflow:hidden;background:linear-gradient(135deg,var(--steel),var(--indigo));box-shadow:var(--shadow);position:relative}
+.portrait .frame img{width:100%;height:100%;object-fit:cover}
+.portrait::after{content:"";position:absolute;inset:auto -14px -14px auto;width:60%;height:60%;border-radius:24px;border:3px solid var(--gold);z-index:-1}
+.missing{display:flex;align-items:center;justify-content:center}
+.missing img{display:none}
+.missing::before{content:attr(data-file);color:#fff;font-size:.85rem;font-family:ui-monospace,monospace;background:rgba(0,0,0,.2);padding:6px 10px;border-radius:8px}
+
+/* Approach */
+.approach{background:var(--card)}
+.approach-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.points{display:grid;gap:16px}
+.point{display:flex;gap:16px;padding:18px;border-radius:var(--radius);background:var(--bg)}
+.point .ic{flex:none;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:1.3rem;background:#fff}
+.point h3{font-size:1.05rem;margin-bottom:4px;color:var(--ink);font-family:var(--sans);font-weight:600}
+.point p{margin:0;color:var(--muted);font-size:.95rem}
+
+/* Services */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin-top:36px}
+.card{background:var(--card);border-radius:var(--radius);padding:24px;box-shadow:0 2px 10px rgba(74,40,60,.05);border-top:5px solid var(--c,var(--wine))}
+.card h3{font-size:1.1rem}
+.card p{color:var(--muted);font-size:.95rem;margin:0}
+.where{margin-top:48px;background:var(--indigo);color:#fff;border-radius:22px;padding:32px}
+.where h3{color:#fff;font-size:1.35rem;margin-bottom:20px}
+.where-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px}
+.where-item strong{display:block;font-size:1rem;margin-bottom:2px}
+.where-item span{opacity:.85;font-size:.93rem}
+.where-item .ic{font-size:1.4rem;display:block;margin-bottom:6px}
+
+/* About */
+.about{background:var(--card)}
+.about-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:56px;align-items:start}
+.creds{background:var(--bg);border-radius:var(--radius);padding:26px;border-left:5px solid var(--gold)}
+.creds h3{font-size:1.1rem;color:var(--ink);font-family:var(--sans);font-weight:600}
+.creds ul{list-style:none;padding:0;margin:0 0 20px;display:grid;gap:10px}
+.creds li{display:flex;gap:10px;font-size:.95rem}
+.creds li::before{content:"";flex:none;width:8px;height:8px;margin-top:9px;border-radius:50%;background:var(--plum)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+.stat{background:var(--bg);border-radius:var(--radius);padding:22px}
+.stat b{display:block;font-family:var(--serif);font-size:2.4rem;color:var(--wine);line-height:1}
+.stat b .g{color:var(--plum)}
+.stat span:not(.g){display:block;margin-top:8px;font-size:.9rem;color:var(--muted)}
+
+/* Gallery */
+.carousel{position:relative;max-width:860px;margin:36px auto 0}
+.track-wrap{overflow:hidden;border-radius:22px;box-shadow:var(--shadow);background:#fff}
+.track{display:flex;transition:transform .6s ease}
+.slide{flex:0 0 100%;margin:0}
+.slide .ph{aspect-ratio:16/10;background:linear-gradient(135deg,var(--plum),var(--steel));position:relative}
+.slide .ph img{width:100%;height:100%;object-fit:cover}
+.slide figcaption{padding:16px 22px;font-size:.98rem;color:var(--muted);text-align:center}
+.car-btn{position:absolute;top:calc(50% - 30px);transform:translateY(-50%);width:46px;height:46px;border-radius:50%;border:0;background:#fff;color:var(--wine);font-size:1.4rem;box-shadow:var(--shadow);cursor:pointer}
+.car-btn.prev{left:-18px}.car-btn.next{right:-18px}
+.dots{display:flex;justify-content:center;gap:8px;margin-top:16px}
+.dots button{width:10px;height:10px;border-radius:50%;border:0;background:var(--greige);cursor:pointer;padding:0}
+.dots button.active{background:var(--wine);width:26px;border-radius:6px}
+
+/* Pricing */
+.pricing{background:var(--bg-alt)}
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+.price{background:#fff;border-radius:var(--radius);padding:28px;text-align:center;position:relative}
+.price.featured{border:2px solid var(--wine);box-shadow:var(--shadow)}
+.price h3{font-family:var(--sans);font-weight:600;font-size:1rem;color:var(--ink)}
+.price .amt{font-family:var(--serif);font-size:2.2rem;color:var(--wine);line-height:1.1;margin:6px 0}
+.price .unit{font-size:.9rem;color:var(--muted);display:block;margin-bottom:14px}
+.price p{font-size:.92rem;color:var(--muted);margin:0}
+.note{margin-top:26px;text-align:center;font-size:.95rem;color:var(--ink);background:rgba(255,188,66,.25);border-radius:12px;padding:12px 18px;display:inline-block}
+
+/* Booking */
+.intro{margin-top:32px;display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:var(--indigo);color:#fff;border-radius:22px;padding:22px 26px}
+.intro .ic{font-size:1.8rem;flex:none}
+.intro .txt{flex:1 1 260px;display:flex;gap:14px;align-items:center}
+.intro strong{display:block;font-size:1.1rem}
+.intro span{opacity:.88;font-size:.95rem}
+.intro .btn{background:var(--gold);color:var(--ink);box-shadow:none}
+.or-line{text-align:center;margin:26px 0 0;color:var(--muted);font-weight:600}
+.cal-box{margin-top:14px;background:#fff;border-radius:22px;box-shadow:var(--shadow);min-height:200px;overflow:hidden}
+#cal-inline{width:100%;min-height:640px}
+.cal-placeholder{padding:48px 28px;text-align:center;color:var(--muted)}
+.cal-placeholder .ic{font-size:2.4rem;display:block;margin-bottom:10px}
+
+/* Contact */
+.contact{background:var(--card)}
+.contact-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:start}
+form{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field.full{grid-column:1/-1}
+label{font-size:.9rem;font-weight:600}
+input,select,textarea{font:inherit;font-size:.97rem;padding:12px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);width:100%}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--indigo);background:#fff}
+textarea{min-height:120px;resize:vertical}
+.hidden{display:none}
+.form-note{font-size:.88rem;color:var(--muted);grid-column:1/-1;margin:0}
+.email-line{margin-top:20px;font-size:.95rem}
+
+/* FAQ */
+.faq{max-width:780px;margin:32px auto 0;display:grid;gap:12px}
+details{background:#fff;border-radius:14px;padding:18px 22px;border:1px solid var(--line)}
+summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--wine);font-size:1.3rem;line-height:1}
+details[open] summary::after{content:"–"}
+details p{margin:12px 0 0;color:var(--muted)}
+
+/* Add-to-Home-Screen banner */
+.a2hs{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:100;max-width:520px;margin:0 auto;background:#fff;border-radius:18px;box-shadow:0 12px 40px rgba(42,34,48,.25);padding:16px 44px 16px 16px;display:flex;gap:14px;align-items:center;border-top:4px solid var(--gold)}
+.a2hs img{width:48px;height:48px;border-radius:12px;flex:none}
+.a2hs strong{display:block;font-size:.98rem}
+.a2hs p{margin:2px 0 0;font-size:.88rem;color:var(--muted)}
+.a2hs .share{display:inline-block;vertical-align:-3px;width:16px;height:16px}
+.a2hs .x{position:absolute;top:8px;right:10px;border:0;background:none;font-size:1.4rem;color:var(--muted);cursor:pointer;line-height:1}
+.a2hs .btn{margin-top:8px}
+.install-link{background:none;border:0;padding:0;font:inherit;color:var(--gold);text-decoration:underline;cursor:pointer}
+footer{background:var(--ink);color:#e9e2e6;padding-block:40px;font-size:.92rem}
+.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+footer a{color:var(--gold)}
+footer .brand{color:#fff}
+
+@media (max-width:900px){
+  .hero-grid,.approach-grid,.about-grid,.contact-grid{grid-template-columns:1fr;gap:36px}
+  .portrait{max-width:380px;margin-inline:auto}
+  .price-grid{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr}
+  .nav-links{display:none;position:absolute;top:68px;left:0;right:0;background:var(--bg);flex-direction:column;padding:16px 20px 22px;border-bottom:1px solid var(--line)}
+  .nav-links.open{display:flex}
+  .menu-btn{display:block}
+  .car-btn.prev{left:8px}.car-btn.next{right:8px}
+}
+@media (max-width:560px){
+  section{padding-block:56px}
+  form{grid-template-columns:1fr}
+  .nav-right .btn{display:none}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a href="#top" class="brand"><img src="icons/icon-192.png" alt="" class="logo"><span data-brand>La Profe Rico</span></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#approach" data-i18n="nav_approach">How I teach</a>
+      <a href="#lessons" data-i18n="nav_lessons">Lessons</a>
+      <a href="#about" data-i18n="nav_about">About</a>
+      <a href="#pricing" data-i18n="nav_pricing">Pricing</a>
+      <a href="#contact" data-i18n="nav_contact">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <a href="#book" class="btn btn-primary btn-small" data-i18n="nav_book">Book</a>
+      <select class="lang" id="langSelect" aria-label="Language">
+        <option value="en">English</option>
+        <option value="es">Español</option>
+        <option value="zh">繁體中文</option>
+      </select>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="kicker" data-i18n="hero_kicker">In-person English tutoring · Madrid</span>
+      <h1 data-i18n-html="hero_title">English help that starts <span class="hl">where your child is.</span></h1>
+      <p class="lead" data-i18n="hero_sub">Homework support, conversation practice and exam prep with a native New Yorker and certified English teacher. No generic syllabus: we work on what your child actually needs.</p>
+      <div class="btns">
+        <a href="#book" class="btn btn-primary" data-i18n="cta_book">Book a session</a>
+        <a href="#contact" class="btn btn-secondary" data-i18n="cta_msg">Send a message</a>
+      </div>
+      <div class="badges">
+        <span class="badge" data-i18n="badge1">TQUK Level 4 TEFL</span>
+        <span class="badge" data-i18n="badge2">Native speaker · NYC</span>
+        <span class="badge" data-i18n="badge3">Ages 5–18</span>
+        <span class="badge" data-i18n="badge4">Background-checked</span>
+      </div>
+    </div>
+    <div class="portrait">
+      <!-- YOUR PHOTO: upload as images/erika.jpg -->
+      <div class="frame" data-file="images/erika.jpg">
+        <img src="images/erika.jpg" alt="Erika, English tutor" onerror="this.parentElement.classList.add('missing')">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section class="approach" id="approach">
+  <div class="container approach-grid">
+    <div>
+      <span class="kicker" data-i18n="ap_kicker">How I teach</span>
+      <h2 data-i18n="ap_title">Not a grammar course. Targeted support.</h2>
+      <p class="lead" data-i18n="ap_body">Your child already has English at school. My job is to fill the gaps: we review weak spots, work through homework and textbooks together, prepare for upcoming exams, and build the confidence to actually speak. Every session is shaped around what's happening that week.</p>
+    </div>
+    <div class="points">
+      <div class="point"><div class="ic">🎯</div><div><h3 data-i18n="ap1_t">Weak spots first</h3><p data-i18n="ap1_b">We find what's holding them back and work on it directly.</p></div></div>
+      <div class="point"><div class="ic">📚</div><div><h3 data-i18n="ap2_t">Works with any textbook</h3><p data-i18n="ap2_b">I've taught with many school textbooks and follow your child's.</p></div></div>
+      <div class="point"><div class="ic">💬</div><div><h3 data-i18n="ap3_t">Real conversation</h3><p data-i18n="ap3_b">Speaking practice and American culture, so English feels useful, not just another subject.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- LESSONS -->
+<section id="lessons">
+  <div class="container">
+    <div class="center">
+      <span class="kicker" data-i18n="ls_kicker">Lessons</span>
+      <h2 data-i18n="ls_title">What we can work on</h2>
+      <p class="lead" data-i18n="ls_sub">One-hour sessions, daily, weekly or recurring for the whole school year. Longer sessions available.</p>
+    </div>
+    <div class="cards">
+      <div class="card" style="--c:var(--wine)"><h3 data-i18n="s1_t">Homework &amp; school support</h3><p data-i18n="s1_b">Weekly help with school English: homework, projects, textbook units and test review.</p></div>
+      <div class="card" style="--c:var(--gold)"><h3 data-i18n="s2_t">Exam preparation</h3><p data-i18n="s2_b">Cambridge, IELTS, Trinity, EBAU and more. Practice exams, strategy and targeted review.</p></div>
+      <div class="card" style="--c:var(--steel)"><h3 data-i18n="s3_t">Conversation &amp; American culture</h3><p data-i18n="s3_b">Relaxed sessions to practice speaking, build vocabulary and learn how English is really used in the US.</p></div>
+      <div class="card" style="--c:var(--plum)"><h3 data-i18n="s4_t">High school year in the USA</h3><p data-i18n="s4_b">Help preparing applications and interviews, and getting ready for life at an American high school.</p></div>
+      <div class="card" style="--c:var(--indigo)"><h3 data-i18n="s5_t">Adults</h3><p data-i18n="s5_b">Conversation practice and essay writing, in person or online.</p></div>
+    </div>
+
+    <div class="where">
+      <h3 data-i18n="wh_title">Where we meet</h3>
+      <div class="where-grid">
+        <div class="where-item"><span class="ic">🏠</span><strong data-i18n="w1_t">At your home</strong><span data-i18n="w1_b">Anywhere within the M-30.</span></div>
+        <div class="where-item"><span class="ic">📖</span><strong data-i18n="w2_t">At my home</strong><span data-i18n="w2_b">A quiet space ready for studying.</span></div>
+        <div class="where-item"><span class="ic">🎒</span><strong data-i18n="w3_t">School pickup</strong><span data-i18n="w3_b">Available on request.</span></div>
+        <div class="where-item"><span class="ic">💻</span><strong data-i18n="w4_t">Online</strong><span data-i18n="w4_b">Possible, though I prefer in person.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <span class="kicker" data-i18n="ab_kicker">About me</span>
+        <h2 data-i18n="ab_title">Hi, I'm Erika.</h2>
+        <p data-i18n="ab_p1">I'm a native English speaker from New York City. After a career in the corporate world, I earned my TQUK Level 4 certificate in Teaching English as a Foreign Language and moved into the work I enjoy most: helping young people feel comfortable and confident in English.</p>
+        <p data-i18n="ab_p2">For two years I worked at a public high school in Vallecas, Madrid, and with students from charter (concertado) schools. Throughout both school years I also tutored children and teens aged 5 to 18 every week, in their homes.</p>
+        <p data-i18n="ab_p3">I studied Italian and International Studies at Penn State University and completed an MBA in Spain taught entirely in Spanish. I know what it's like to learn in a second language, and I can explain things in Spanish when a student gets stuck.</p>
+        <p data-i18n="ab_p4">I've also helped students prepare to spend a year at a US high school, and I've coached adults, including a school principal, in conversation and essay writing.</p>
+        <p><a href="https://sites.google.com/view/erikatheprofe/home" target="_blank" rel="noopener" data-i18n="ab_link">See a teaching project I built →</a></p>
+      </div>
+      <aside class="creds">
+        <h3 data-i18n="cr_title">Qualifications</h3>
+        <ul>
+          <li data-i18n="cr1">TQUK Level 4 Certificate in TEFL</li>
+          <li data-i18n="cr2">Native speaker, New York City</li>
+          <li data-i18n="cr3">BA, Penn State University (Italian &amp; International Studies)</li>
+          <li data-i18n="cr4">MBA in Spain, taught in Spanish</li>
+          <li data-i18n="cr5">Spanish: C1</li>
+          <li data-i18n="cr6">Certificado de Delitos de Naturaleza Sexual (clear)</li>
+        </ul>
+        <a href="#book" class="btn btn-primary btn-small" data-i18n="cta_book">Book a session</a>
+      </aside>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>+58<span class="g">%</span></b><span data-i18n="st1">Average score improvement for my Cambridge and EBAU prep students, from first practice exam to final result.</span></div>
+      <div class="stat"><b>2</b><span data-i18n="st2">Full school years tutoring weekly in Madrid homes.</span></div>
+      <div class="stat"><b>5–18</b><span data-i18n="st3">Ages I've taught, from first words to university entrance exams.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY: upload photos as images/gallery-1.jpg ... gallery-5.jpg and edit [caption X] below -->
+<section id="gallery">
+  <div class="container">
+    <div class="center">
+      <span class="kicker" data-i18n="gl_kicker">Gallery</span>
+      <h2 data-i18n="gl_title">Moments from lessons</h2>
+    </div>
+    <div class="carousel" id="carousel">
+      <div class="track-wrap">
+        <div class="track" id="track">
+          <figure class="slide"><div class="ph" data-file="images/gallery-1.jpg"><img src="images/gallery-1.jpg" alt="[caption 1]" onerror="this.parentElement.classList.add('missing')"></div><figcaption>[caption 1]</figcaption></figure>
+          <figure class="slide"><div class="ph" data-file="images/gallery-2.jpg"><img src="images/gallery-2.jpg" alt="[caption 2]" onerror="this.parentElement.classList.add('missing')"></div><figcaption>[caption 2]</figcaption></figure>
+          <figure class="slide"><div class="ph" data-file="images/gallery-3.jpg"><img src="images/gallery-3.jpg" alt="[caption 3]" onerror="this.parentElement.classList.add('missing')"></div><figcaption>[caption 3]</figcaption></figure>
+          <figure class="slide"><div class="ph" data-file="images/gallery-4.jpg"><img src="images/gallery-4.jpg" alt="[caption 4]" onerror="this.parentElement.classList.add('missing')"></div><figcaption>[caption 4]</figcaption></figure>
+          <figure class="slide"><div class="ph" data-file="images/gallery-5.jpg"><img src="images/gallery-5.jpg" alt="[caption 5]" onerror="this.parentElement.classList.add('missing')"></div><figcaption>[caption 5]</figcaption></figure>
+        </div>
+      </div>
+      <button class="car-btn prev" id="prev" aria-label="Previous">‹</button>
+      <button class="car-btn next" id="next" aria-label="Next">›</button>
+      <div class="dots" id="dots"></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="container center">
+    <span class="kicker" data-i18n="pr_kicker">Pricing</span>
+    <h2 data-i18n="pr_title">Simple, clear pricing</h2>
+    <div class="price-grid">
+      <div class="price featured">
+        <h3 data-i18n="pr1_t">Private session</h3>
+        <div class="amt" data-i18n="pr1_amt">from €25</div>
+        <span class="unit" data-i18n="pr1_unit">per hour</span>
+        <p data-i18n="pr1_b">One-to-one, within the M-30. Longer sessions are priced proportionally.</p>
+      </div>
+      <div class="price">
+        <h3 data-i18n="pr2_t">Small group</h3>
+        <div class="amt" data-i18n="pr2_amt">€20</div>
+        <span class="unit" data-i18n="pr2_unit">per student, per hour</span>
+        <p data-i18n="pr2_b">Siblings or friends learning together.</p>
+      </div>
+      <div class="price">
+        <h3 data-i18n="pr3_t">Recurring sessions</h3>
+        <div class="amt" data-i18n="pr3_amt">Daily or weekly</div>
+        <span class="unit" data-i18n="pr3_unit">same time, every week</span>
+        <p data-i18n="pr3_b">Keep a fixed slot for the whole school year.</p>
+      </div>
+    </div>
+    <p class="note" data-i18n="pr_note">The optional 15-minute intro (in person or video) is free. All bookings need at least 24 hours' notice. Sessions run between 10:00 and 20:00.</p>
+  </div>
+</section>
+
+<!-- BOOKING (Cal.com) -->
+<section id="book">
+  <div class="container">
+    <div class="center">
+      <span class="kicker" data-i18n="bk_kicker">Booking</span>
+      <h2 data-i18n="bk_title">Book a session</h2>
+      <p class="lead" data-i18n="bk_sub">Choose a single session or a recurring weekly slot. Bookings need at least 24 hours' notice, and I confirm each one personally by email.</p>
+    </div>
+    <div class="intro" id="introBox">
+      <div class="txt"><span class="ic">👋</span><div><strong data-i18n="in_t">Want to meet first? Book a free 15-minute intro (optional)</strong><span data-i18n="in_b">In person or by video. We meet, talk about your child's needs and see if we're a good fit, with no commitment.</span></div></div>
+      <button class="btn" id="introBtn" data-cal-namespace="booking" data-cal-config='{"layout":"month_view"}' data-i18n="in_btn">Book a free intro</button>
+    </div>
+    <p class="or-line" data-i18n="in_or">Or go straight to booking a 1-hour session:</p>
+    <div class="cal-box">
+      <div id="cal-inline"></div>
+      <div class="cal-placeholder" id="calPlaceholder">
+        <span class="ic">📅</span>
+        <p data-i18n="bk_soon">Online booking is coming soon. For now, send a request below and I'll confirm by email.</p>
+        <a href="#contact" class="btn btn-secondary btn-small" data-i18n="cta_msg">Send a message</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT (Netlify Forms) -->
+<section class="contact" id="contact">
+  <div class="container contact-grid">
+    <div>
+      <span class="kicker" data-i18n="ct_kicker">Contact</span>
+      <h2 data-i18n="ct_title">Send a message</h2>
+      <p class="lead" data-i18n="ct_sub">Have questions first? Tell me about your child and I'll reply by email within a day or two.</p>
+      <p class="email-line"><span data-i18n="ct_email">Or email me directly:</span><br><a href="mailto:ehteachesenglish@gmail.com">ehteachesenglish@gmail.com</a></p>
+    </div>
+
+    <form name="contact" method="POST" action="/success.html" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="contact">
+      <input type="hidden" name="site-language" id="siteLanguage" value="en">
+      <p class="hidden"><label>Don't fill this out: <input name="bot-field"></label></p>
+
+      <div class="field"><label for="f-name" data-i18n="f_name">Your name</label><input id="f-name" name="name" required autocomplete="name"></div>
+      <div class="field"><label for="f-email" data-i18n="f_email">Email</label><input id="f-email" type="email" name="email" required autocomplete="email"></div>
+      <div class="field"><label for="f-age" data-i18n="f_age">Student's age</label><input id="f-age" name="student-age" inputmode="numeric"></div>
+      <div class="field"><label for="f-need" data-i18n="f_need">What do you need help with?</label>
+        <select id="f-need" name="help-with">
+          <option value="Homework & school support" data-i18n="s1_t">Homework &amp; school support</option>
+          <option value="Exam preparation" data-i18n="s2_t">Exam preparation</option>
+          <option value="Conversation & culture" data-i18n="s3_t">Conversation &amp; American culture</option>
+          <option value="High school year in USA" data-i18n="s4_t">High school year in the USA</option>
+          <option value="Adult lessons" data-i18n="s5_t">Adults</option>
+          <option value="Other" data-i18n="f_other">Something else</option>
+        </select></div>
+      <div class="field"><label for="f-where" data-i18n="f_where">Where?</label>
+        <select id="f-where" name="location">
+          <option value="At our home" data-i18n="f_w1">At our home</option>
+          <option value="At Erika's home" data-i18n="f_w2">At Erika's home</option>
+          <option value="School pickup" data-i18n="w3_t">School pickup</option>
+          <option value="Online" data-i18n="w4_t">Online</option>
+        </select></div>
+      <div class="field"><label for="f-date" data-i18n="f_date">Preferred start date</label><input id="f-date" type="date" name="start-date"></div>
+      <div class="field full"><label for="f-times" data-i18n="f_times">Preferred days &amp; times</label><input id="f-times" name="preferred-times" data-i18n-ph="f_times_ph" placeholder="e.g. Tue &amp; Thu after 17:00"></div>
+      <div class="field full"><label for="f-msg" data-i18n="f_msg">Message</label><textarea id="f-msg" name="message" data-i18n-ph="f_msg_ph" placeholder="Tell me a little about the student, their level and any upcoming exams."></textarea></div>
+      <p class="form-note" data-i18n="f_note">No last-minute sessions: please allow at least 24 hours' notice.</p>
+      <div class="field full"><button class="btn btn-primary" type="submit" data-i18n="f_send">Send message</button></div>
+    </form>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="background:var(--bg-alt)">
+  <div class="container">
+    <div class="center"><span class="kicker">FAQ</span><h2 data-i18n="fq_title">Common questions</h2></div>
+    <div class="faq">
+      <details><summary data-i18n="q1">How often should we meet?</summary><p data-i18n="a1">Most families book once or twice a week for the school year. Before exams, extra sessions help.</p></details>
+      <details><summary data-i18n="q2">Can sessions be longer than an hour?</summary><p data-i18n="a2">Yes. Sessions are booked in 1-hour blocks and can be extended; longer sessions are priced proportionally.</p></details>
+      <details><summary data-i18n="q3">Do you follow a syllabus?</summary><p data-i18n="a3">No. I don't teach grammar from scratch. I work with your child's school material, textbooks and upcoming exams, and focus on their weak spots.</p></details>
+      <details><summary data-i18n="q4">Why 24 hours' notice?</summary><p data-i18n="a4">I travel to students around the city, so I plan each day in advance. That's why every booking needs at least 24 hours' notice.</p></details>
+      <details><summary data-i18n="q5">Do you teach adults?</summary><p data-i18n="a5">Mostly I work with kids and teens, but I'm happy to help adults with conversation practice and essay writing.</p></details>
+      <details><summary data-i18n="q6">Can we meet before booking lessons?</summary><p data-i18n="a6">Yes, and many families like to. Book an optional, free 15-minute intro, in person or by video, to talk about your child's needs, goals and schedule and see if we're a good fit.</p></details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container foot">
+    <div><span class="brand"><span data-brand>La Profe Rico</span></span><span data-i18n="ft_tag">In-person English tutoring in Madrid</span></div>
+    <div><a href="mailto:ehteachesenglish@gmail.com">ehteachesenglish@gmail.com</a> · © <span id="year"></span> <span data-brand>La Profe Rico</span> · <button class="install-link" id="installLink" data-i18n="a2_footer">Add to Home Screen</button></div>
+  </div>
+</footer>
+
+<!-- Add-to-Home-Screen banner (shown on phones, hidden once installed or dismissed) -->
+<div class="a2hs" id="a2hs" hidden>
+  <img src="icons/apple-touch-icon.png" alt="">
+  <div>
+    <strong data-i18n="a2_title">Get the La Profe Rico app</strong>
+    <p id="a2hsIos"><span data-i18n="a2_ios1">Tap</span>
+      <svg class="share" viewBox="0 0 24 24" fill="none" stroke="#4a5899" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="Share"><path d="M12 3v12"/><path d="M8 7l4-4 4 4"/><path d="M5 11v8a2 2 0 002 2h10a2 2 0 002-2v-8"/></svg>
+      <span data-i18n="a2_ios2">then “Add to Home Screen” to book in one tap.</span></p>
+    <p id="a2hsOther" hidden><span data-i18n="a2_other">Install it on your phone to book in one tap.</span><br>
+      <button class="btn btn-primary btn-small" id="installBtn" data-i18n="a2_btn">Install</button></p>
+  </div>
+  <button class="x" id="a2hsClose" aria-label="Close">×</button>
+</div>
+
+<script>
+/* ============================================================
+   SETTINGS (edit these)
+   ============================================================ */
+const BRAND = "La Profe Rico";           // site name shown everywhere
+const CAL_LINK = "erika-laprofe-english/60minweb";   // 1-hour session, shown in the calendar (see SETUP.md)
+const CAL_INTRO_LINK = "erika-laprofe-english/15min";  // free 15-min intro (in person or video), opens from the "Book a free intro" button
+
+/* ============================================================
+   TRANSLATIONS  (en = English, es = Español, zh = 繁體中文 / Taiwan)
+   ============================================================ */
+const T = {
+en:{
+ nav_approach:"How I teach",nav_lessons:"Lessons",nav_about:"About",nav_pricing:"Pricing",nav_contact:"Contact",nav_book:"Book",
+ hero_kicker:"In-person English tutoring · Madrid",
+ hero_title:'English help that starts <span class="hl">where your child is.</span>',
+ hero_sub:"Homework support, conversation practice and exam prep with a native New Yorker and certified English teacher. No generic syllabus: we work on what your child actually needs.",
+ cta_book:"Book a session",cta_msg:"Send a message",
+ badge1:"TQUK Level 4 TEFL",badge2:"Native speaker · NYC",badge3:"Ages 5–18",badge4:"Background-checked",
+ ap_kicker:"How I teach",ap_title:"Not a grammar course. Targeted support.",
+ ap_body:"Your child already has English at school. My job is to fill the gaps: we review weak spots, work through homework and textbooks together, prepare for upcoming exams, and build the confidence to actually speak. Every session is shaped around what's happening that week.",
+ ap1_t:"Weak spots first",ap1_b:"We find what's holding them back and work on it directly.",
+ ap2_t:"Works with any textbook",ap2_b:"I've taught with many school textbooks and follow your child's.",
+ ap3_t:"Real conversation",ap3_b:"Speaking practice and American culture, so English feels useful, not just another subject.",
+ ls_kicker:"Lessons",ls_title:"What we can work on",ls_sub:"One-hour sessions, daily, weekly or recurring for the whole school year. Longer sessions available.",
+ s1_t:"Homework & school support",s1_b:"Weekly help with school English: homework, projects, textbook units and test review.",
+ s2_t:"Exam preparation",s2_b:"Cambridge, IELTS, Trinity, EBAU and more. Practice exams, strategy and targeted review.",
+ s3_t:"Conversation & American culture",s3_b:"Relaxed sessions to practice speaking, build vocabulary and learn how English is really used in the US.",
+ s4_t:"High school year in the USA",s4_b:"Help preparing applications and interviews, and getting ready for life at an American high school.",
+ s5_t:"Adults",s5_b:"Conversation practice and essay writing, in person or online.",
+ wh_title:"Where we meet",w1_t:"At your home",w1_b:"Anywhere within the M-30.",w2_t:"At my home",w2_b:"A quiet space ready for studying.",w3_t:"School pickup",w3_b:"Available on request.",w4_t:"Online",w4_b:"Possible, though I prefer in person.",
+ ab_kicker:"About me",ab_title:"Hi, I'm Erika.",
+ ab_p1:"I'm a native English speaker from New York City. After a career in the corporate world, I earned my TQUK Level 4 certificate in Teaching English as a Foreign Language and moved into the work I enjoy most: helping young people feel comfortable and confident in English.",
+ ab_p2:"For two years I worked at a public high school in Vallecas, Madrid, and with students from charter (concertado) schools. Throughout both school years I also tutored children and teens aged 5 to 18 every week, in their homes.",
+ ab_p3:"I studied Italian and International Studies at Penn State University and completed an MBA in Spain taught entirely in Spanish. I know what it's like to learn in a second language, and I can explain things in Spanish when a student gets stuck.",
+ ab_p4:"I've also helped students prepare to spend a year at a US high school, and I've coached adults, including a school principal, in conversation and essay writing.",
+ ab_link:"See a teaching project I built →",
+ cr_title:"Qualifications",cr1:"TQUK Level 4 Certificate in TEFL",cr2:"Native speaker, New York City",cr3:"BA, Penn State University (Italian & International Studies)",cr4:"MBA in Spain, taught in Spanish",cr5:"Spanish: C1",cr6:"Certificado de Delitos de Naturaleza Sexual (clear)",
+ st1:"Average score improvement for my Cambridge and EBAU prep students, from first practice exam to final result.",st2:"Full school years tutoring weekly in Madrid homes.",st3:"Ages I've taught, from first words to university entrance exams.",
+ gl_kicker:"Gallery",gl_title:"Moments from lessons",
+ pr_kicker:"Pricing",pr_title:"Simple, clear pricing",
+ pr1_t:"Private session",pr1_amt:"from €25",pr1_unit:"per hour",pr1_b:"One-to-one, within the M-30. Longer sessions are priced proportionally.",
+ pr2_t:"Small group",pr2_amt:"€20",pr2_unit:"per student, per hour",pr2_b:"Siblings or friends learning together.",
+ pr3_t:"Recurring sessions",pr3_amt:"Daily or weekly",pr3_unit:"same time, every week",pr3_b:"Keep a fixed slot for the whole school year.",
+ pr_note:"The optional 15-minute intro (in person or video) is free. All bookings need at least 24 hours' notice. Sessions run between 10:00 and 20:00.",
+ bk_kicker:"Booking",bk_title:"Book a session",bk_sub:"Choose a single session or a recurring weekly slot. Bookings need at least 24 hours' notice, and I confirm each one personally by email.",
+ bk_soon:"Online booking is coming soon. For now, send a request below and I'll confirm by email.",
+ ct_kicker:"Contact",ct_title:"Send a message",ct_sub:"Have questions first? Tell me about your child and I'll reply by email within a day or two.",ct_email:"Or email me directly:",
+ f_name:"Your name",f_email:"Email",f_age:"Student's age",f_need:"What do you need help with?",f_other:"Something else",f_where:"Where?",f_w1:"At our home",f_w2:"At Erika's home",
+ f_date:"Preferred start date",f_times:"Preferred days & times",f_times_ph:"e.g. Tue & Thu after 17:00",f_msg:"Message",f_msg_ph:"Tell me a little about the student, their level and any upcoming exams.",
+ f_note:"No last-minute sessions: please allow at least 24 hours' notice.",f_send:"Send message",
+ fq_title:"Common questions",
+ q1:"How often should we meet?",a1:"Most families book once or twice a week for the school year. Before exams, extra sessions help.",
+ q2:"Can sessions be longer than an hour?",a2:"Yes. Sessions are booked in 1-hour blocks and can be extended; longer sessions are priced proportionally.",
+ q3:"Do you follow a syllabus?",a3:"No. I don't teach grammar from scratch. I work with your child's school material, textbooks and upcoming exams, and focus on their weak spots.",
+ q4:"Why 24 hours' notice?",a4:"I travel to students around the city, so I plan each day in advance. That's why every booking needs at least 24 hours' notice.",
+ in_t:"Want to meet first? Book a free 15-minute intro (optional)",in_b:"In person or by video. We meet, talk about your child's needs and see if we're a good fit, with no commitment.",in_btn:"Book a free intro",in_or:"Or go straight to booking a 1-hour session:",q6:"Can we meet before booking lessons?",a6:"Yes, and many families like to. Book an optional, free 15-minute intro, in person or by video, to talk about your child's needs, goals and schedule and see if we're a good fit.",
+ q5:"Do you teach adults?",a5:"Mostly I work with kids and teens, but I'm happy to help adults with conversation practice and essay writing.",
+ a2_title:"Get the La Profe Rico app",a2_ios1:"Tap",a2_ios2:"then “Add to Home Screen” to book in one tap.",a2_other:"Install it on your phone to book in one tap.",a2_btn:"Install",a2_desktop:"Open this site on your phone, then choose “Add to Home Screen”.",a2_footer:"Add to Home Screen",
+ ft_tag:" · In-person English tutoring in Madrid", title:"La Profe Rico · English Tutoring in Madrid"
+},
+es:{
+ nav_approach:"Mi método",nav_lessons:"Clases",nav_about:"Sobre mí",nav_pricing:"Tarifas",nav_contact:"Contacto",nav_book:"Reservar",
+ hero_kicker:"Clases particulares de inglés presenciales · Madrid",
+ hero_title:'Clases de inglés que parten <span class="hl">de donde está tu hijo.</span>',
+ hero_sub:"Apoyo con los deberes, práctica de conversación y preparación de exámenes con una profesora nativa de Nueva York con certificación en enseñanza de inglés. Sin temario genérico: trabajamos lo que tu hijo realmente necesita.",
+ cta_book:"Reservar una clase",cta_msg:"Enviar un mensaje",
+ badge1:"TQUK Nivel 4 TEFL",badge2:"Nativa · Nueva York",badge3:"De 5 a 18 años",badge4:"Certificado de delitos sexuales",
+ ap_kicker:"Mi método",ap_title:"No es un curso de gramática. Es apoyo a medida.",
+ ap_body:"Tu hijo ya tiene inglés en el colegio. Mi trabajo es cubrir lo que falta: repasamos los puntos débiles, hacemos juntos los deberes y el libro de texto, preparamos los próximos exámenes y ganamos confianza para hablar de verdad. Cada clase se adapta a lo que toca esa semana.",
+ ap1_t:"Primero, los puntos débiles",ap1_b:"Detectamos lo que les frena y lo trabajamos directamente.",
+ ap2_t:"Con cualquier libro de texto",ap2_b:"He trabajado con muchos libros de texto y sigo el de tu hijo.",
+ ap3_t:"Conversación real",ap3_b:"Práctica oral y cultura americana, para que el inglés sea útil y no solo otra asignatura.",
+ ls_kicker:"Clases",ls_title:"En qué podemos trabajar",ls_sub:"Clases de una hora: diarias, semanales o periódicas durante todo el curso. También clases más largas.",
+ s1_t:"Deberes y apoyo escolar",s1_b:"Ayuda semanal con el inglés del cole: deberes, proyectos, unidades del libro y repaso para exámenes.",
+ s2_t:"Preparación de exámenes",s2_b:"Cambridge, IELTS, Trinity, EBAU y más. Simulacros, estrategia y repaso dirigido.",
+ s3_t:"Conversación y cultura americana",s3_b:"Clases relajadas para practicar, ampliar vocabulario y descubrir cómo se habla de verdad en EE. UU.",
+ s4_t:"Año escolar en EE. UU.",s4_b:"Ayuda con la solicitud y las entrevistas, y preparación para la vida en un instituto americano.",
+ s5_t:"Adultos",s5_b:"Práctica de conversación y redacción, presencial u online.",
+ wh_title:"Dónde damos clase",w1_t:"En tu casa",w1_b:"En cualquier punto dentro de la M-30.",w2_t:"En mi casa",w2_b:"Un espacio tranquilo y preparado para estudiar.",w3_t:"Recogida en el colegio",w3_b:"Disponible bajo petición.",w4_t:"Online",w4_b:"Es posible, aunque prefiero presencial.",
+ ab_kicker:"Sobre mí",ab_title:"Hola, soy Erika.",
+ ab_p1:"Soy nativa de Nueva York. Después de una carrera en el mundo corporativo, obtuve el certificado TQUK Nivel 4 en Enseñanza de Inglés como Lengua Extranjera y me dediqué a lo que más me gusta: ayudar a niños y jóvenes a sentirse cómodos y seguros en inglés.",
+ ab_p2:"Durante dos años trabajé en un instituto público de Vallecas (Madrid) y con alumnos de colegios concertados. Durante esos dos cursos también di clases particulares cada semana a niños y adolescentes de 5 a 18 años, en sus casas.",
+ ab_p3:"Estudié Italiano y Estudios Internacionales en Penn State University e hice un MBA en España íntegramente en español. Sé lo que es aprender en otro idioma, y puedo explicar las cosas en español cuando un alumno se atasca.",
+ ab_p4:"También he ayudado a alumnos a preparar un año escolar en un instituto de EE. UU., y he dado clases de conversación y redacción a adultos, entre ellos una directora de colegio.",
+ ab_link:"Mira un proyecto docente que creé →",
+ cr_title:"Formación",cr1:"Certificado TQUK Nivel 4 en TEFL",cr2:"Nativa, Nueva York",cr3:"Grado, Penn State University (Italiano y Estudios Internacionales)",cr4:"MBA en España, en español",cr5:"Español: C1",cr6:"Certificado de Delitos de Naturaleza Sexual (negativo)",
+ st1:"Mejora media de nota de mis alumnos de Cambridge y EBAU, del primer simulacro al resultado final.",st2:"Cursos completos dando clases semanales en casas de Madrid.",st3:"Edades con las que he trabajado, desde las primeras palabras hasta la EBAU.",
+ gl_kicker:"Galería",gl_title:"Momentos de clase",
+ pr_kicker:"Tarifas",pr_title:"Tarifas claras y sencillas",
+ pr1_t:"Clase individual",pr1_amt:"desde 25 €",pr1_unit:"por hora",pr1_b:"Individual, dentro de la M-30. Las clases más largas se calculan de forma proporcional.",
+ pr2_t:"Grupo reducido",pr2_amt:"20 €",pr2_unit:"por alumno y hora",pr2_b:"Hermanos o amigos que aprenden juntos.",
+ pr3_t:"Clases periódicas",pr3_amt:"Diarias o semanales",pr3_unit:"mismo horario cada semana",pr3_b:"Reserva un horario fijo para todo el curso.",
+ pr_note:"La presentación opcional de 15 minutos (en persona o por videollamada) es gratuita. Todas las reservas requieren al menos 24 horas de antelación. Horario de clases: de 10:00 a 20:00.",
+ bk_kicker:"Reservas",bk_title:"Reserva una clase",bk_sub:"Elige una clase suelta o un horario semanal fijo. Las reservas requieren al menos 24 horas de antelación y confirmo cada una personalmente por email.",
+ bk_soon:"La reserva online estará disponible muy pronto. Mientras tanto, envía una solicitud abajo y te confirmaré por email.",
+ ct_kicker:"Contacto",ct_title:"Envía un mensaje",ct_sub:"¿Tienes dudas antes de empezar? Cuéntame sobre tu hijo y te responderé por email en uno o dos días.",ct_email:"O escríbeme directamente:",
+ f_name:"Tu nombre",f_email:"Email",f_age:"Edad del alumno",f_need:"¿En qué necesitas ayuda?",f_other:"Otra cosa",f_where:"¿Dónde?",f_w1:"En nuestra casa",f_w2:"En casa de Erika",
+ f_date:"Fecha de inicio preferida",f_times:"Días y horas preferidas",f_times_ph:"p. ej. martes y jueves después de las 17:00",f_msg:"Mensaje",f_msg_ph:"Cuéntame un poco sobre el alumno, su nivel y si tiene algún examen próximo.",
+ f_note:"Sin clases de última hora: reserva con al menos 24 horas de antelación.",f_send:"Enviar mensaje",
+ fq_title:"Preguntas frecuentes",
+ q1:"¿Con qué frecuencia deberíamos quedar?",a1:"La mayoría de familias reserva una o dos clases a la semana durante el curso. Antes de los exámenes conviene añadir alguna más.",
+ q2:"¿Pueden durar más de una hora?",a2:"Sí. Las clases se reservan en bloques de 1 hora y se pueden alargar; las más largas se cobran de forma proporcional.",
+ q3:"¿Sigues un temario?",a3:"No. No enseño gramática desde cero: trabajo con el material del colegio, el libro de texto y los próximos exámenes, centrándome en sus puntos débiles.",
+ q4:"¿Por qué 24 horas de antelación?",a4:"Me desplazo por toda la ciudad, así que organizo cada día con antelación. Por eso todas las reservas necesitan al menos 24 horas.",
+ in_t:"¿Quieres conocerme antes? Reserva una presentación gratuita de 15 minutos (opcional)",in_b:"En persona o por videollamada. Nos conocemos, hablamos de lo que necesita tu hijo y vemos si encajamos, sin compromiso.",in_btn:"Reservar presentación gratuita",in_or:"O reserva directamente una clase de 1 hora:",q6:"¿Podemos conocernos antes de reservar clases?",a6:"Sí, y muchas familias lo prefieren. Reserva una presentación opcional y gratuita de 15 minutos, en persona o por videollamada, para hablar de las necesidades, objetivos y horarios de tu hijo y ver si encajamos.",
+ q5:"¿Das clases a adultos?",a5:"Trabajo sobre todo con niños y adolescentes, pero también ayudo a adultos con conversación y redacción.",
+ a2_title:"Ten La Profe Rico en tu móvil",a2_ios1:"Pulsa",a2_ios2:"y luego “Añadir a pantalla de inicio” para reservar con un toque.",a2_other:"Instálala en tu móvil para reservar con un toque.",a2_btn:"Instalar",a2_desktop:"Abre esta web en tu móvil y elige “Añadir a pantalla de inicio”.",a2_footer:"Añadir a pantalla de inicio",
+ ft_tag:" · Clases de inglés presenciales en Madrid", title:"La Profe Rico · Clases de inglés en Madrid"
+},
+zh:{
+ nav_approach:"教學方式",nav_lessons:"課程",nav_about:"關於我",nav_pricing:"收費",nav_contact:"聯絡",nav_book:"預約",
+ hero_kicker:"面對面英語家教 · 台灣",
+ hero_title:'從<span class="hl">孩子現在的程度</span>出發的英語輔導。',
+ hero_sub:"由來自紐約、英語為母語的認證英語老師，提供作業輔導、會話練習與考試準備。不照本宣科，只專注孩子真正需要加強的地方。",
+ cta_book:"預約課程",cta_msg:"留言諮詢",
+ badge1:"TQUK Level 4 英語教學證書",badge2:"英語母語 · 紐約",badge3:"5–18 歲",badge4:"無犯罪紀錄證明",
+ ap_kicker:"教學方式",ap_title:"不是文法課，而是量身打造的輔導。",
+ ap_body:"孩子在學校已經有英文課了。我的工作是補足不足之處：複習弱點、一起完成作業和課本練習、準備即將到來的考試，並建立真正開口說英文的自信。每堂課都依照當週的需要安排。",
+ ap1_t:"先找出弱點",ap1_b:"找出讓孩子卡關的地方，直接解決。",
+ ap2_t:"配合任何課本",ap2_b:"我使用過多種學校教材，會配合孩子目前的課本。",
+ ap3_t:"真實對話",ap3_b:"口說練習加上美國文化，讓英文變得實用，而不只是一門科目。",
+ ls_kicker:"課程",ls_title:"課程內容",ls_sub:"每堂一小時，可每日、每週或整學年固定上課，也可安排較長的課程。",
+ s1_t:"作業與課業輔導",s1_b:"每週協助學校英文：作業、專題、課本單元與考前複習。",
+ s2_t:"考試準備",s2_b:"劍橋英檢、IELTS、Trinity 等各類考試。模擬考、應試策略與重點複習。",
+ s3_t:"英語會話與美國文化",s3_b:"輕鬆的課程中練習口說、累積字彙，了解美國人真正怎麼說英文。",
+ s4_t:"赴美高中交換學年",s4_b:"協助準備申請與面試，並為美國高中生活做好準備。",
+ s5_t:"成人課程",s5_b:"會話練習與英文寫作，可面授或線上。",
+ wh_title:"上課地點",w1_t:"到府上課",w1_b:"市區範圍內皆可。",w2_t:"在我家上課",w2_b:"安靜、適合讀書的空間。",w3_t:"放學接送",w3_b:"可依需求安排。",w4_t:"線上",w4_b:"可以，但我比較推薦面授。",
+ ab_kicker:"關於我",ab_title:"嗨，我是 Erika。",
+ ab_p1:"我來自紐約，英語是我的母語。在企業界工作多年後，我取得英國 TQUK Level 4 英語教學（TEFL）證書，投入我最喜歡的工作：幫助孩子和青少年自在、自信地使用英文。",
+ ab_p2:"我曾在西班牙馬德里 Vallecas 區的一所公立高中工作兩年，也教過私立學校的學生。這兩個學年中，我每週到學生家中，為 5 至 18 歲的孩子與青少年上家教課。",
+ ab_p3:"我在美國賓州州立大學主修義大利文與國際研究，並在西班牙以全西班牙文完成 MBA。我很清楚用第二語言學習是什麼感覺，也更能理解學生遇到的困難。",
+ ab_p4:"我也曾協助學生準備赴美就讀一年高中，並指導成人（包括一位學校校長）的英語會話與寫作。",
+ ab_link:"看看我做過的教學專案 →",
+ cr_title:"學經歷",cr1:"TQUK Level 4 英語教學（TEFL）證書",cr2:"英語母語，紐約",cr3:"美國賓州州立大學學士（義大利文、國際研究）",cr4:"西班牙 MBA（全西班牙文授課）",cr5:"西班牙文 C1",cr6:"無性犯罪紀錄證明",
+ st1:"我的劍橋英檢與 EBAU 考生，從第一次模擬考到正式成績的平均進步幅度。",st2:"在馬德里每週到府家教的完整學年。",st3:"教過的學生年齡，從剛開始學英文到大學入學考試。",
+ gl_kicker:"相簿",gl_title:"上課花絮",
+ pr_kicker:"收費",pr_title:"簡單透明的收費",
+ pr1_t:"一對一課程",pr1_amt:"NT$1,000 起",pr1_unit:"每小時",pr1_b:"一對一，市區範圍內。較長課程依比例計費。",
+ pr2_t:"小班課程",pr2_amt:"NT$800",pr2_unit:"每人每小時",pr2_b:"兄弟姊妹或朋友一起上課。",
+ pr3_t:"固定課程",pr3_amt:"每日或每週",pr3_unit:"每週固定時段",pr3_b:"整個學年保留固定上課時間。",
+ pr_note:"自由選擇的 15 分鐘初次見面（面對面或視訊）免費。所有預約須至少提前 24 小時。上課時段：10:00–20:00。",
+ bk_kicker:"預約",bk_title:"預約課程",bk_sub:"可預約單堂或每週固定時段，須至少提前 24 小時預約，我會親自以電子郵件確認每一筆預約。",
+ bk_soon:"線上預約即將開放。目前請先透過下方表單提出申請，我會以電子郵件確認。",
+ ct_kicker:"聯絡",ct_title:"留言諮詢",ct_sub:"有任何問題嗎？請告訴我孩子的狀況，我會在一兩天內以電子郵件回覆。",ct_email:"或直接寄信給我：",
+ f_name:"您的姓名",f_email:"電子郵件",f_age:"學生年齡",f_need:"需要哪方面的協助？",f_other:"其他",f_where:"上課地點",f_w1:"在我們家",f_w2:"在 Erika 家",
+ f_date:"希望開始日期",f_times:"希望的上課日與時段",f_times_ph:"例如：週二、週四 17:00 以後",f_msg:"留言",f_msg_ph:"請簡單介紹學生的狀況、程度，以及近期是否有考試。",
+ f_note:"恕不接受臨時預約，請至少提前 24 小時。",f_send:"送出",
+ fq_title:"常見問題",
+ q1:"多久上一次課比較好？",a1:"大多數家庭整個學年每週上一到兩次，考前可以增加次數。",
+ q2:"課程可以超過一小時嗎？",a2:"可以。課程以一小時為單位預約，可以延長，較長課程依比例計費。",
+ q3:"有固定的課綱嗎？",a3:"沒有。我不從零開始教文法，而是配合學校教材、課本和即將到來的考試，專注在孩子的弱點上。",
+ q4:"為什麼要提前 24 小時預約？",a4:"我需要往返各地上課，每天的行程都要事先安排，所以所有預約都須至少提前 24 小時。",
+ in_t:"想先見個面嗎？預約免費 15 分鐘初次見面（自由選擇）",in_b:"面對面或視訊皆可。彼此認識、聊聊孩子的需求，看看是否適合，沒有任何義務。",in_btn:"預約免費見面",in_or:"或直接預約一小時課程：",q6:"正式上課前可以先聊聊嗎？",a6:"可以，很多家庭都喜歡這樣做。您可以預約免費的 15 分鐘初次見面（面對面或視訊，自由選擇），討論孩子的需求、目標和時間安排，看看是否適合。",
+ q5:"有成人課程嗎？",a5:"我主要教兒童和青少年，但也很樂意協助成人練習會話和英文寫作。",
+ a2_title:"將 La Profe Rico 加到主畫面",a2_ios1:"點選",a2_ios2:"再選「加入主畫面」，一鍵就能預約。",a2_other:"安裝到手機上，一鍵就能預約。",a2_btn:"安裝",a2_desktop:"請用手機開啟本網站，再選擇「加入主畫面」。",a2_footer:"加入主畫面",
+ ft_tag:" · 台灣面對面英語家教", title:"La Profe Rico · 英語家教"
+}};
+
+/* ============================================================
+   Language switching
+   ============================================================ */
+const htmlLang = {en:"en",es:"es",zh:"zh-Hant-TW"};
+function setLang(lang){
+  const d = T[lang] || T.en;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{const k=el.dataset.i18n; if(d[k]!=null) el.textContent=d[k];});
+  document.querySelectorAll("[data-i18n-html]").forEach(el=>{const k=el.dataset.i18nHtml; if(d[k]!=null) el.innerHTML=d[k];});
+  document.querySelectorAll("[data-i18n-ph]").forEach(el=>{const k=el.dataset.i18nPh; if(d[k]!=null) el.placeholder=d[k];});
+  document.querySelectorAll("[data-brand]").forEach(el=>el.textContent=BRAND);
+  document.documentElement.lang = htmlLang[lang] || "en";
+  document.title = d.title;
+  document.getElementById("langSelect").value = lang;
+  document.getElementById("siteLanguage").value = lang;
+  try{ localStorage.setItem("lang", lang); }catch(e){}
+}
+const params = new URLSearchParams(location.search);
+let saved = null; try{ saved = localStorage.getItem("lang"); }catch(e){}
+setLang(params.get("lang") || saved || "en");
+document.getElementById("langSelect").addEventListener("change", e=>setLang(e.target.value));
+
+/* Mobile menu */
+const navLinks = document.getElementById("navLinks");
+document.getElementById("menuBtn").addEventListener("click", ()=>navLinks.classList.toggle("open"));
+navLinks.querySelectorAll("a").forEach(a=>a.addEventListener("click", ()=>navLinks.classList.remove("open")));
+
+/* Form: earliest start date = at least 24h away (day after tomorrow, to be safe) */
+(function(){
+  const d = new Date(); d.setDate(d.getDate()+2);
+  document.getElementById("f-date").min = d.toISOString().slice(0,10);
+})();
+
+/* Gallery carousel */
+(function(){
+  const track = document.getElementById("track");
+  const slides = track.children.length;
+  const dots = document.getElementById("dots");
+  let i = 0, timer;
+  for(let n=0;n<slides;n++){
+    const b=document.createElement("button"); b.setAttribute("aria-label","Slide "+(n+1));
+    b.addEventListener("click",()=>{go(n);restart();}); dots.appendChild(b);
+  }
+  function go(n){
+    i=(n+slides)%slides;
+    track.style.transform=`translateX(-${i*100}%)`;
+    [...dots.children].forEach((d,k)=>d.classList.toggle("active",k===i));
+  }
+  function restart(){clearInterval(timer);timer=setInterval(()=>go(i+1),5000);}
+  document.getElementById("prev").addEventListener("click",()=>{go(i-1);restart();});
+  document.getElementById("next").addEventListener("click",()=>{go(i+1);restart();});
+  const car=document.getElementById("carousel");
+  car.addEventListener("mouseenter",()=>clearInterval(timer));
+  car.addEventListener("mouseleave",restart);
+  go(0); restart();
+})();
+
+/* Cal.com inline embed (activates once CAL_LINK is set) */
+if (CAL_LINK) {
+  document.getElementById("calPlaceholder").style.display="none";
+  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+  Cal("init", "booking", { origin: "https://cal.com" });
+  Cal.ns.booking("inline", { elementOrSelector: "#cal-inline", calLink: CAL_LINK, config: { layout: "month_view" } });
+  Cal.ns.booking("ui", { theme: "light", cssVarsPerTheme: { light: { "cal-brand": "#92374D" } }, hideEventTypeDetails: false, layout: "month_view" });
+} else {
+  document.getElementById("cal-inline").style.display="none";
+}
+/* Intro call button: opens the 15-min event in a pop-up (falls back to a new tab) */
+(function(){
+  const box = document.getElementById("introBox"), btn = document.getElementById("introBtn");
+  if (!CAL_INTRO_LINK) { box.hidden = true; document.querySelector(".or-line").hidden = true; return; }
+  btn.setAttribute("data-cal-link", CAL_INTRO_LINK);
+  btn.addEventListener("click", () => {
+    if (!window.Cal || !window.Cal.loaded) window.open("https://cal.com/" + CAL_INTRO_LINK, "_blank", "noopener");
+  });
+})();
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+/* ============================================================
+   Add to Home Screen (web app)
+   ============================================================ */
+if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
+  navigator.serviceWorker.register("/sw.js").catch(()=>{});
+}
+(function(){
+  const banner = document.getElementById("a2hs");
+  const iosText = document.getElementById("a2hsIos");
+  const otherText = document.getElementById("a2hsOther");
+  const installBtn = document.getElementById("installBtn");
+  const ua = navigator.userAgent;
+  const isIOS = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  const isMobile = isIOS || /Android/.test(ua);
+  const installed = window.matchMedia("(display-mode: standalone)").matches || navigator.standalone === true;
+  let deferred = null;
+  let dismissed = false; try { dismissed = localStorage.getItem("a2hsDismissed") === "1"; } catch(e){}
+
+  function show(){
+    if (installed) return;
+    if (isIOS) { iosText.hidden = false; otherText.hidden = true; }
+    else {
+      iosText.hidden = true; otherText.hidden = false;
+      installBtn.hidden = !deferred;
+      if (!deferred && !isMobile) otherText.firstElementChild.textContent = (T[document.getElementById("langSelect").value]||T.en).a2_desktop;
+    }
+    banner.hidden = false;
+  }
+  function hide(){ banner.hidden = true; try { localStorage.setItem("a2hsDismissed","1"); } catch(e){} }
+
+  // Android / Chrome: capture the browser's install prompt
+  window.addEventListener("beforeinstallprompt", e => { e.preventDefault(); deferred = e; if (!dismissed) setTimeout(show, 4000); });
+  installBtn.addEventListener("click", async () => { if (!deferred) return; deferred.prompt(); await deferred.userChoice; deferred = null; hide(); });
+
+  // iPhone/iPad: show instructions a few seconds after the page loads (once)
+  if (isIOS && !installed && !dismissed) setTimeout(show, 4000);
+
+  document.getElementById("a2hsClose").addEventListener("click", hide);
+  const link = document.getElementById("installLink");
+  if (installed) link.hidden = true;
+  link.addEventListener("click", () => {
+    otherText.firstElementChild.textContent = (T[document.getElementById("langSelect").value]||T.en).a2_other;
+    show();
+  });
+})();
+
+</script>
+</body>
+</html>
