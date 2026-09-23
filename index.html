@@ -90,7 +90,10 @@ header{position:sticky;top:0;z-index:50;background:rgba(248,244,242,.92);backdro
 .point p{margin:0;color:var(--muted);font-size:.95rem}
 
 /* Services */
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin-top:36px}
+.cards{display:flex;flex-wrap:wrap;justify-content:center;gap:18px;margin-top:36px}
+.cards .card{flex:0 1 calc((100% - 36px)/3)}
+@media (max-width:900px){.cards .card{flex-basis:calc((100% - 18px)/2)}}
+@media (max-width:560px){.cards .card{flex-basis:100%}}
 .card{background:var(--card);border-radius:var(--radius);padding:24px;box-shadow:0 2px 10px rgba(74,40,60,.05);border-top:5px solid var(--c,var(--wine))}
 .card h3{font-size:1.1rem}
 .card p{color:var(--muted);font-size:.95rem;margin:0}
@@ -295,7 +298,8 @@ footer .brand{color:#fff}
       <div class="card" style="--c:var(--gold)"><h3 data-i18n="s2_t">Exam preparation</h3><p data-i18n="s2_b">Cambridge, IELTS, Trinity, EBAU and more. Practice exams, strategy and targeted review.</p></div>
       <div class="card" style="--c:var(--steel)"><h3 data-i18n="s3_t">Conversation &amp; American culture</h3><p data-i18n="s3_b">Relaxed sessions to practice speaking, build vocabulary and learn how English is really used in the US.</p></div>
       <div class="card" style="--c:var(--plum)"><h3 data-i18n="s4_t">High school year in the USA</h3><p data-i18n="s4_b">Help preparing applications and interviews, and getting ready for life at an American high school.</p></div>
-      <div class="card" style="--c:var(--indigo)"><h3 data-i18n="s5_t">Adults</h3><p data-i18n="s5_b">Conversation practice and essay writing, in person or online.</p></div>
+      <div class="card" style="--c:var(--greige)"><h3 data-i18n="s6_t">Writing &amp; grammar review</h3><p data-i18n="s6_b">Essays, compositions and targeted grammar review to fix the gaps that cost marks.</p></div>
+      <div class="card" style="--c:var(--indigo)"><h3 data-i18n="s5_t">Adults</h3><p data-i18n="s5_b">Conversation, grammar review and essay writing, in person or online.</p></div>
     </div>
 
     <div class="where">
@@ -445,6 +449,7 @@ footer .brand{color:#fff}
           <option value="Exam preparation" data-i18n="s2_t">Exam preparation</option>
           <option value="Conversation & culture" data-i18n="s3_t">Conversation &amp; American culture</option>
           <option value="High school year in USA" data-i18n="s4_t">High school year in the USA</option>
+          <option value="Writing & grammar review" data-i18n="s6_t">Writing &amp; grammar review</option>
           <option value="Adult lessons" data-i18n="s5_t">Adults</option>
           <option value="Other" data-i18n="f_other">Something else</option>
         </select></div>
@@ -531,7 +536,8 @@ en:{
  s2_t:"Exam preparation",s2_b:"Cambridge, IELTS, Trinity, EBAU and more. Practice exams, strategy and targeted review.",
  s3_t:"Conversation & American culture",s3_b:"Relaxed sessions to practice speaking, build vocabulary and learn how English is really used in the US.",
  s4_t:"High school year in the USA",s4_b:"Help preparing applications and interviews, and getting ready for life at an American high school.",
- s5_t:"Adults",s5_b:"Conversation practice and essay writing, in person or online.",
+ s6_t:"Writing & grammar review",s6_b:"Essays, compositions and targeted grammar review to fix the gaps that cost marks.",
+ s5_t:"Adults",s5_b:"Conversation, grammar review and essay writing, in person or online.",
  wh_title:"Where we meet",w1_t:"At your home",w1_b:"Anywhere within the M-30.",w2_t:"At my home",w2_b:"A quiet space ready for studying.",w3_t:"School pickup",w3_b:"Available on request.",w4_t:"Online",w4_b:"Possible, though I prefer in person.",
  ab_kicker:"About me",ab_title:"Hi, I'm Erika.",
  ab_p1:"I'm a native English speaker from New York City. After a career in the corporate world, I earned my TQUK Level 4 certificate in Teaching English as a Foreign Language and moved into the work I enjoy most: helping young people feel comfortable and confident in English.",
@@ -581,7 +587,8 @@ es:{
  s2_t:"Preparación de exámenes",s2_b:"Cambridge, IELTS, Trinity, EBAU y más. Simulacros, estrategia y repaso dirigido.",
  s3_t:"Conversación y cultura americana",s3_b:"Clases relajadas para practicar, ampliar vocabulario y descubrir cómo se habla de verdad en EE. UU.",
  s4_t:"Año escolar en EE. UU.",s4_b:"Ayuda con la solicitud y las entrevistas, y preparación para la vida en un instituto americano.",
- s5_t:"Adultos",s5_b:"Práctica de conversación y redacción, presencial u online.",
+ s6_t:"Redacción y repaso de gramática",s6_b:"Redacciones, ensayos y repaso de gramática dirigido para corregir los fallos que restan puntos.",
+ s5_t:"Adultos",s5_b:"Conversación, repaso de gramática y redacción, presencial u online.",
  wh_title:"Dónde damos clase",w1_t:"En tu casa",w1_b:"En cualquier punto dentro de la M-30.",w2_t:"En mi casa",w2_b:"Un espacio tranquilo y preparado para estudiar.",w3_t:"Recogida en el colegio",w3_b:"Disponible bajo petición.",w4_t:"Online",w4_b:"Es posible, aunque prefiero presencial.",
  ab_kicker:"Sobre mí",ab_title:"Hola, soy Erika.",
  ab_p1:"Soy nativa de Nueva York. Después de una carrera en el mundo corporativo, obtuve el certificado TQUK Nivel 4 en Enseñanza de Inglés como Lengua Extranjera y me dediqué a lo que más me gusta: ayudar a niños y jóvenes a sentirse cómodos y seguros en inglés.",
@@ -631,7 +638,8 @@ zh:{
  s2_t:"考試準備",s2_b:"劍橋英檢、IELTS、Trinity 等各類考試。模擬考、應試策略與重點複習。",
  s3_t:"英語會話與美國文化",s3_b:"輕鬆的課程中練習口說、累積字彙，了解美國人真正怎麼說英文。",
  s4_t:"赴美高中交換學年",s4_b:"協助準備申請與面試，並為美國高中生活做好準備。",
- s5_t:"成人課程",s5_b:"會話練習與英文寫作，可面授或線上。",
+ s6_t:"寫作與文法複習",s6_b:"作文、論說文寫作，以及針對性的文法複習，補強讓你失分的弱點。",
+ s5_t:"成人課程",s5_b:"會話練習、文法複習與英文寫作，可面授或線上。",
  wh_title:"上課地點",w1_t:"到府上課",w1_b:"市區範圍內皆可。",w2_t:"在我家上課",w2_b:"安靜、適合讀書的空間。",w3_t:"放學接送",w3_b:"可依需求安排。",w4_t:"線上",w4_b:"可以，但我比較推薦面授。",
  ab_kicker:"關於我",ab_title:"嗨，我是 Erika。",
  ab_p1:"我來自紐約，英語是我的母語。在企業界工作多年後，我取得英國 TQUK Level 4 英語教學（TEFL）證書，投入我最喜歡的工作：幫助孩子和青少年自在、自信地使用英文。",
